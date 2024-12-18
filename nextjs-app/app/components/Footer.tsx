@@ -1,105 +1,26 @@
-import Link from "next/link";
-
-export const Footer = () => {
+export default function Footer() {
   return (
-    <div className="w-full bg-[rgba(239,239,239,1)]">
-      <div className="flex flex-col justify-center items-center px-4 w-full max-w-[1280px] mx-auto gap-8 sm:gap-16 py-8 sm:py-10">
-        <div className="flex flex-col sm:flex-row justify-between items-start w-full border-t-2 border-black pt-8 sm:pt-10 gap-8 sm:gap-0">
-          <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-16 lg:gap-64 w-full">
-            <Link href="https://blessed.fan" className="mb-4 sm:mb-0">
-              <img src="/logo.svg" alt="Logo" className="h-8 sm:h-auto" />
-            </Link>
-
-            <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 lg:gap-40">
-              <div className="flex flex-col gap-4">
-                <span className="font-bold">Product</span>
-                <span>
-                  <Link href="/use-cases">Use cases</Link>
-                </span>
-                {/* <span>
-                  <Link href="https://docs.blessed.fan/">Developer API</Link>
-                </span> */}
-                <span>
-                  <Link href="https://docs.blessed.fan/">Docs</Link>
-                </span>
-                <span>
-                  <Link href="/pricing">Pricing</Link>
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <span className="font-bold">Company</span>
-                <span>
-                  <Link href="/about-us">About us</Link>
-                </span>
-                <span>
-                  <Link href="/contact-us">Contact</Link>
-                </span>
-                <span>
-                  <Link href="/terms-and-conditions">Terms & conditions</Link>
-                </span>
-                <span>
-                  <Link href="/privacy-policy">Privacy policy</Link>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-6 sm:gap-0">
-          <div className="flex items-center gap-4 text-sm sm:text-base">
-            <span className="font-medium">© 2024 Blessed</span>
-            <span className="font-medium">
-              <Link href="/imprint">Imprint</Link>
-            </span>
-          </div>
-
-          <div className="order-first sm:order-none mb-4 sm:mb-0">
-            <span
-              className="uppercase font-bold text-xl sm:text-2xl lg:text-[32px] leading-tight sm:leading-[44px] text-center block sm:inline"
-              style={{
-                color: "#1D1D1B",
-                fontFeatureSettings: "'liga' off, 'clig' off",
-                fontFamily: '"TT Bluescreens"',
-                fontStyle: "normal",
-                fontWeight: 700,
-              }}
+    <footer className="bg-gray-50 border-gray-100 border-t">
+      <div className="container">
+        <div className="flex flex-col items-center py-28 lg:flex-row">
+          <h3 className="mb-10 text-center text-4xl font-bold leading-tight tracking-tighter lg:mb-0 lg:w-1/2 lg:pr-4 lg:text-left lg:text-5xl">
+            Built with Sanity + Next.js.
+          </h3>
+          <div className="flex flex-col gap-3 items-center justify-center lg:w-1/2 lg:flex-row lg:pl-4">
+            <a
+              href="https://github.com/sanity-io/sanity-template-nextjs-clean"
+              className="rounded-full flex gap-2 items-center bg-black hover:bg-red-500 focus:bg-cyan-500 py-3 px-6 text-white transition-colors duration-200"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              radical transparency + love 🙏
-            </span>
-          </div>
-
-          <div className="flex gap-4">
-            {["twitter-x", "linkedin", "telegram-black", "Github"].map(
-              (icon, index) => {
-                const urls = [
-                  "https://x.com/blessedfans",
-                  "https://www.linkedin.com/company/blessedfan/",
-                  "https://t.me/blessedsupport",
-                  "https://github.com/BlessedOrg/",
-                ];
-
-                return (
-                  <a
-                    key={icon}
-                    href={urls[index]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="flex w-8 h-8 sm:w-[36px] sm:h-[36px] p-2 sm:p-[9px] items-start gap-[10px] bg-white rounded-full">
-                      <img
-                        src={`/img/icons/${icon}.svg`}
-                        alt={icon}
-                        className="w-full h-full"
-                      />
-                    </div>
-                  </a>
-                );
-              }
-            )}
+              View on GitHub
+            </a>
+            <a href="https://nextjs.org/docs" className="mx-3 hover:underline">
+              Read Next.js Documentation
+            </a>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
-};
+}
