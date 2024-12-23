@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { navLinks } from "@/app/components/nav/nav-links";
 
-export const MobileNav = ({ isOpen }) => {
+export const MobileNav = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
       className="lg:hidden fixed w-full h-[100dvh] bg-white z-50 left-0 top-[76.36px]"
