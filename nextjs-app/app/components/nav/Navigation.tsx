@@ -2,13 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { MobileNav } from "@/components/nav/MobileNav";
+import { MobileNav } from "@/app/components/nav/MobileNav";
 import { AuthModal } from "@/components/authModal/AuthModal";
 import { Menu, X } from "lucide-react";
-import { useUserContext } from "@/store/UserContext";
-import { Button } from "@/components/ui/button";
-import { dashboardUrl } from "@/variables/varaibles";
-import { NavMenu } from "@/components/nav/NavMenu";
+import { useUserContext } from "@/app/components/store/UserContext";
+import { Button } from "@/app/components/ui/button";
+import { dashboardUrl } from "@/app/components/variables/varaibles";
+import { NavMenu } from "@/app/components/nav/NavMenu";
 
 export const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -59,3 +59,5 @@ export const Navigation = () => {
     </nav>
   );
 };
+
+export default Navigation;
