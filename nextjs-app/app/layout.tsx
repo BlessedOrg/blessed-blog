@@ -8,6 +8,7 @@ import { VisualEditing, toPlainText } from "next-sanity";
 import { Toaster } from "sonner";
 
 import DraftModeToast from "@/app/components/DraftModeToast";
+import Navigation from "@/app/components/nav/Navigation";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import { LiveErrorBoundary } from "@/app/components/LiveErrorBoundary";
@@ -74,6 +75,7 @@ export default async function RootLayout({
           <LiveErrorBoundary>
             <SanityLive />
           </LiveErrorBoundary>
+          <Navigation />
           <Header />
           <main className="">{children}</main>
           <Footer />
