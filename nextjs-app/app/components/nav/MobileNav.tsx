@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navLinks } from "@/app/components/nav/nav-links";
+import { navLinks } from "@/components/nav/nav-links";
 
 export const MobileNav = ({ isOpen }: { isOpen: boolean }) => {
   return (

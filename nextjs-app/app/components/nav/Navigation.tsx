@@ -2,20 +2,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { MobileNav } from "@/app/components/nav/MobileNav";
-import { AuthModal } from "@/components/authModal/AuthModal";
+import { MobileNav } from "@/components/nav/MobileNav";
 import { Menu, X } from "lucide-react";
-import { useUserContext } from "@/app/components/store/UserContext";
-import { Button } from "@/app/components/ui/button";
-import { dashboardUrl } from "@/app/components/variables/varaibles";
-import { NavMenu } from "@/app/components/nav/NavMenu";
+// import { useUserContext } from "@/app/components/store/UserContext";
+import { Button } from "@/components/ui/button";
+import { dashboardUrl } from "@/components/variables/varaibles";
+import { NavMenu } from "@/components/nav/NavMenu";
 
 export const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const onNavToggle = () => {
     setIsMobileNavOpen((prev) => !prev);
   };
-  const { isLoggedIn, email } = useUserContext();
+  // const { isLoggedIn, email } = useUserContext();
 
   return (
     <nav className="py-5 lg:py-8 px-4 lg:px-6 grid grid-cols-2 lg:grid-cols-3 w-full sticky top-0 lg:static bg-white z-50">
@@ -40,13 +39,13 @@ export const Navigation = () => {
           Docs
         </Link>
 
-        {!isLoggedIn && <AuthModal authType="onboarding" />}
+        {/* {!isLoggedIn && <AuthModal authType="onboarding" />}
 
         {isLoggedIn && (
           <Button variant="green" className="rounded-full " size="lg" asChild>
             <Link href={`${dashboardUrl}`}>Dashboard</Link>
           </Button>
-        )}
+        )} */}
       </div>
 
       <button

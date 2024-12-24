@@ -7,10 +7,10 @@ import { draftMode } from "next/headers";
 import { VisualEditing, toPlainText } from "next-sanity";
 import { Toaster } from "sonner";
 
-import DraftModeToast from "@/app/components/DraftModeToast";
-import Navigation from "@/app/components/nav/Navigation";
-import Footer from "@/app/components/Footer";
-import { LiveErrorBoundary } from "@/app/components/LiveErrorBoundary";
+import DraftModeToast from "@/components/DraftModeToast";
+import Navigation from "@/components/nav/Navigation";
+import Footer from "@/components/Footer";
+import { LiveErrorBoundary } from "@/components/LiveErrorBoundary";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
