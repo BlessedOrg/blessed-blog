@@ -4,23 +4,22 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
-import { VisualEditing, toPlainText } from "next-sanity";
+import { toPlainText, VisualEditing } from "next-sanity";
 import { Toaster } from "sonner";
-
 import DraftModeToast from "@/components/DraftModeToast";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { LiveErrorBoundary } from "@/components/LiveErrorBoundary";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import { Navigation } from "@/components/nav/Navigation";
+import { Footer } from "@/components/footer/Footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data: settings } = await sanityFetch({
     query: settingsQuery,
     // Metadata should never contain stega
-    stega: false,
+    stega: false
   });
   const title = settings?.title || demo.title;
   const description = settings?.description || demo.description;
@@ -38,23 +37,23 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase,
     title: {
       template: `%s | ${title}`,
-      default: title,
+      default: title
     },
     description: toPlainText(description),
     openGraph: {
-      images: ogImage ? [ogImage] : [],
-    },
+      images: ogImage ? [ogImage] : []
+    }
   };
 }
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
+  display: "swap"
 });
 
 export default async function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
@@ -62,24 +61,24 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
-      <body>
-        <section className="min-h-screen pt-24">
-          <Toaster />
-          {isDraftMode && (
-            <>
-              <DraftModeToast />
-              <VisualEditing />
-            </>
-          )}
-          <LiveErrorBoundary>
-            <SanityLive />
-          </LiveErrorBoundary>
-          <Header />
-          <main className="">{children}</main>
-          <Footer />
-        </section>
-        <SpeedInsights />
-      </body>
+    <body>
+    <Navigation />
+    <section>
+      <Toaster />
+      {isDraftMode && (
+        <>
+          <DraftModeToast />
+          <VisualEditing />
+        </>
+      )}
+      <LiveErrorBoundary>
+        <SanityLive />
+      </LiveErrorBoundary>
+      <main className="">{children}</main>
+      <Footer />
+    </section>
+    <SpeedInsights />
+    </body>
     </html>
   );
 }
