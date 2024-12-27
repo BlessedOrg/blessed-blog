@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import BlockRenderer from "@/app/components/BlockRenderer";
+import BlockRenderer from "@/components/BlockRenderer";
 import { Page } from "@/sanity.types";
 import { studioUrl } from "@/sanity/lib/api";
 
